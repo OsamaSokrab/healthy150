@@ -1,0 +1,26 @@
+#!/bin/bash
+
+              
+#: Title       : hw
+
+              
+#: Date        : 2023-03-28
+
+              
+#: Author      : Osama Ahmed
+
+              
+#: Version     : 1.0
+
+              
+#: Description : prints Hello and the first command-line argument
+
+              
+#: Options     : None
+
+            
+
+            
+
+              
+printf "Hello, %s!\n" "$1"exit 0

@@ -1,0 +1,30 @@
+#!/bin/bash
+
+              
+#: Title       : open_file
+
+              
+#: Date        : 2023-03-31
+
+              
+#: Author      : Osama Ahmed
+
+              
+#: Version     : 1.0
+
+              
+#: Description : check if the file exists and then open it
+
+              
+#: Options     : None
+
+filename=$1
+open_file(){
+    if [ -f $filename ]; then
+    code $filename;
+    printf "%s\n" "file $filename is open now";
+    else
+    printf "%s\n" "file $filename does not exits";
+    fi
+}
+open_file

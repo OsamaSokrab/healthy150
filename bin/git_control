@@ -1,0 +1,87 @@
+#!/bin/bash
+
+              
+#: Title       : install_flask
+
+              
+#: Date        : 2023-04-02
+
+              
+#: Author      : Osama Ahmed
+
+              
+#: Version     : 1.0
+
+              
+#: Description : install and test flask
+
+              
+#: Options     : None
+
+file=$1
+comment=$2
+user_name=osama
+user_email="osamaethio23@gmail.com"
+github_username=OsamaSokrab
+github_repository=healthy150
+git_control(){
+    printf "%s\n"
+    printf "%s\n" "============================";
+    date '+%Y-%m-%d %H:%M:%S'
+    printf "%s\n" "============================";
+    printf "%s\n"
+    printf "%s\n" "============================";
+    printf "%s\n" "start of git update...";
+    printf "%s\n" "============================";
+    printf "%s\n";
+    # update git to latest version
+    sudo apt-get install git
+    printf "%s\n"
+    printf "%s\n" "============================";
+    printf "%s\n" "end of git update & start of setting username and email...";
+    printf "%s\n" "============================";
+    printf "%s\n";
+
+    # set global credentials
+    git config --global user.name $user_name    
+    git config --global user.email $user_email
+
+    #initiate the git
+    printf "%s\n"
+    printf "%s\n" "============================";
+    printf "%s\n" "end of setting username and email & checking git status...";
+    printf "%s\n" "============================";
+    printf "%s\n";
+    git init
+
+    #check the status of the git
+    git status
+    log_seperator "end of checking git Status...";
+
+    #add the file
+    log_seperator "start of adding files...";
+    git add $file
+    log_seperator "end of adding files...";
+
+    #commit the file
+    log_seperator "start of committing files...";
+    git commit -m $comment
+    log_seperator "end of committing files...";
+
+    #connect to git hub repository and push changes
+    log_seperator "start of connecting and pushing to github...";
+    git remote add origin https://github.com/$github_username/$github_repository.git
+    git branch -M main
+    git push -u origin main
+    log_seperator "end of connecting and pushing to github...";
+
+    #check the status of the git
+    log_seperator "start of checking status...";
+    git status
+    log_seperator "end of checking status...";
+    
+}
+
+git_control >> bin/log  2>>bin/errorFile
+open_file bin/log
+open_file bin/errorFile

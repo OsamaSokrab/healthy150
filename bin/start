@@ -1,0 +1,114 @@
+#!/bin/bash
+
+              
+#: Title       : start_script
+
+              
+#: Date        : 2023-03-28
+
+              
+#: Author      : Osama Ahmed
+
+              
+#: Version     : 1.0
+
+              
+#: Description : update and upgrade shell and bash
+
+              
+#: Options     : None
+
+current_directory=~/healthy150
+start(){ 
+    printf "%s\n"
+    printf "%s\n" "============================";
+    date '+%Y-%m-%d %H:%M:%S'
+    printf "%s\n" "============================";
+    printf "%s\n"
+    printf "%s\n" "============================";
+    printf "%s\n" "start of update...";
+    printf "%s\n" "============================";
+    printf "%s\n";
+    sudo apt update;
+    printf "%s\n"
+    printf "%s\n" "============================";
+    printf "%s\n" "end of update & start of upgrade";
+    printf "%s\n" "============================";
+    printf "%s\n"
+    sudo apt upgrade -y;
+    printf "%s\n"
+    printf "%s\n" "============================";
+    printf "%s\n" "end of upgrade & start of bash upgrade";
+    printf "%s\n" "============================";
+    printf "%s\n"
+    sudo apt-get install --only-upgrade bash;
+    printf "%s\n"
+    printf "%s\n" "============================";
+    printf "%s\n" "end of bash upgrade & start of ubuntu upgrade";
+    printf "%s\n" "============================";
+    printf "%s\n"
+    sudo do-release-upgrade;
+    if do-release-upgrade; then powershell.exe -command restart-computer;
+    fi
+    printf "%s\n"
+    printf "%s\n" "============================";
+    printf "%s\n" "end of ubuntu upgrade";
+    printf "%s\n" "============================";
+    printf "%s\n"
+
+    printf "%s\n"
+    printf "%s\n" "============================";
+    printf "%s\n" "updating pip";
+    printf "%s\n" "============================";
+    printf "%s\n"
+    python -m pip install --upgrade pip
+    printf "%s\n"
+    printf "%s\n" "============================";
+    printf "%s\n" "end of pip upgrade & start of flask upgrade";
+    printf "%s\n" "============================";
+    printf "%s\n"
+    sudo apt-get install --only-upgrade flask;
+    printf "%s\n"
+    printf "%s\n" "============================";
+    printf "%s\n" "end of flask upgrade & try to enter home directory";
+    printf "%s\n" "============================";
+    printf "%s\n"
+    if [ -d "$current_directory" ]; then
+        cd "$current_directory";
+        code .;
+        printf "%s\n"
+        printf "%s\n" "============================";
+        printf "%s\n" "The directory "$current_directory" is now open"
+        printf "%s\n" "============================";
+        printf "%s\n"
+    else 
+        printf "%s\n"
+        printf "%s\n" "============================";
+        printf "%s\n" "The directory "$current_directory" does not exist...";
+        printf "%s\n" "============================";
+        printf "%s\n"
+    fi
+    if [ -f ~/healthy150/venv/bin/activate ];then
+        . ~/healthy150/venv/bin/activate;
+        printf "%s\n"
+        printf "%s\n" "============================";
+        printf "%s\n" "The virtual environment is activated...";
+        printf "%s\n" "============================";
+        printf "%s\n";
+    else
+        printf "%s\n";
+        printf "%s\n" "============================";
+        printf "%s\n" "There is no virtual environment...";
+        printf "%s\n" "============================";
+        printf "%s\n"
+        # python3 -m venv venv
+        # . ~/healthy150/venv/bin/activate;
+        # printf "%s\n";
+        # printf "%s\n" "============================";
+        # printf "%s\n" "The virtual environment is created and activated...";
+        # printf "%s\n" "============================";
+        # printf "%s\n"
+    fi
+    };
+    start >> bin/log 2> bin/errorFile
+    open_file bin/log
