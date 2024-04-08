@@ -24,83 +24,48 @@ start(){
     printf "%s\n" "============================";
     date '+%Y-%m-%d %H:%M:%S'
     printf "%s\n" "============================";
-    printf "%s\n"
-    printf "%s\n" "============================";
-    printf "%s\n" "start of update...";
-    printf "%s\n" "============================";
-    printf "%s\n";
+    log_seperator "start of update...";
+    
     sudo apt update;
-    printf "%s\n"
-    printf "%s\n" "============================";
-    printf "%s\n" "end of update & start of upgrade";
-    printf "%s\n" "============================";
-    printf "%s\n"
+    log_seperator "end of update & start of upgrade";
+    
     sudo apt upgrade -y;
-    printf "%s\n"
-    printf "%s\n" "============================";
-    printf "%s\n" "end of upgrade & start of bash upgrade";
-    printf "%s\n" "============================";
-    printf "%s\n"
+    log_seperator "end of upgrade & start of bash upgrade";
+    
     sudo apt-get install --only-upgrade bash;
-    printf "%s\n"
-    printf "%s\n" "============================";
-    printf "%s\n" "end of bash upgrade & start of ubuntu upgrade";
-    printf "%s\n" "============================";
-    printf "%s\n"
+    log_seperator "end of bash upgrade & start of ubuntu upgrade";
+    
     sudo do-release-upgrade;
     if do-release-upgrade; then powershell.exe -command restart-computer;
     fi
-    printf "%s\n"
-    printf "%s\n" "============================";
-    printf "%s\n" "end of ubuntu upgrade";
-    printf "%s\n" "============================";
-    printf "%s\n"
+    log_seperator "end of ubuntu upgrade";
+    
 
-    printf "%s\n"
-    printf "%s\n" "============================";
-    printf "%s\n" "updating pip";
-    printf "%s\n" "============================";
-    printf "%s\n"
+    log_seperator "updating pip";
+    
     python -m pip install --upgrade pip
-    printf "%s\n"
-    printf "%s\n" "============================";
-    printf "%s\n" "end of pip upgrade & start of flask upgrade";
-    printf "%s\n" "============================";
-    printf "%s\n"
+    log_seperator "end of pip upgrade & start of flask upgrade";
+    
     sudo apt-get install --only-upgrade flask;
-    printf "%s\n"
-    printf "%s\n" "============================";
-    printf "%s\n" "end of flask upgrade & try to enter home directory";
-    printf "%s\n" "============================";
-    printf "%s\n"
+    log_seperator "end of flask upgrade & try to enter home directory";
+    
     if [ -d "$current_directory" ]; then
         cd "$current_directory";
         code .;
-        printf "%s\n"
-        printf "%s\n" "============================";
-        printf "%s\n" "The directory "$current_directory" is now open"
-        printf "%s\n" "============================";
-        printf "%s\n"
+       log_seperator "The directory "$current_directory" is now open"
+        
     else 
-        printf "%s\n"
-        printf "%s\n" "============================";
-        printf "%s\n" "The directory "$current_directory" does not exist...";
-        printf "%s\n" "============================";
-        printf "%s\n"
+       log_seperator "The directory "$current_directory" does not exist...";
+        
     fi
     if [ -f ~/healthy150/venv/bin/activate ];then
         . ~/healthy150/venv/bin/activate;
-        printf "%s\n"
-        printf "%s\n" "============================";
-        printf "%s\n" "The virtual environment is activated...";
-        printf "%s\n" "============================";
-        printf "%s\n";
+       log_seperator "The virtual environment is activated...";
+       
     else
         printf "%s\n";
-        printf "%s\n" "============================";
-        printf "%s\n" "There is no virtual environment...";
-        printf "%s\n" "============================";
-        printf "%s\n"
+        log_seperator "There is no virtual environment...";
+        
         # python3 -m venv venv
         # . ~/healthy150/venv/bin/activate;
         # printf "%s\n";
@@ -109,6 +74,10 @@ start(){
         # printf "%s\n" "============================";
         # printf "%s\n"
     fi
+    flask_install;
+    react frontend
+    #TODO manage git
+    git_control
     };
-    start >> bin/log 2> bin/errorFile
-    open_file bin/log
+    start >> ~/healthy150/bin/log 2> ~/healthy150/bin/errorFile
+    open_file ~/healthy150/bin/log

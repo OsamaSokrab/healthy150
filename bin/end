@@ -1,0 +1,28 @@
+#!/bin/bash
+
+#: Title	: end
+
+#: Date	: 2024-04-02
+
+#: Author	: Osama Ahmed
+
+#: Version	: 1.0
+
+#: Description	: deactivating the virtual environment and entering the root directory
+
+#: Options	: None
+
+#TODO manage end script
+end(){
+	cd / && deactivate;
+	#TODO SHUT DOWN WINDOWS FROM POWERSHELL
+	# powershell.exe -command shutdown -s
+
+}
+end	
+
+	
+
+	
+
+	

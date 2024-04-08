@@ -1,0 +1,26 @@
+#!/bin/bash
+
+#: Title	: react
+
+#: Date	: 2024-04-03
+
+#: Author	: Osama Ahmed
+
+#: Version	: 1.0
+
+#: Description	: installing react
+
+#: Options	: None
+
+project=$1
+react_install(){
+	npx create-react-app $project -y;
+	cd $project && code .
+}
+react_install	>> bin/log 2>> bin/errorFile
+
+	
+
+	
+
+	 

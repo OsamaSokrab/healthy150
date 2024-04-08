@@ -24,14 +24,22 @@ flask_install(){
     pip install flask
 
     #creating app.py file
-    printf "%s\n%s\n%s\n%s\n\t%s\n\t%s\n\t\t%s\n" "from flask import Flask" "app = Flask(__name__)" "@app.route('/')" "def index():" "return 'Welcome to Bizza Platform!'" "if __name__ == '__main__':" "app.run()">>app.py
+    if [ -f app.py ]; then
+        printf "%s\n" "app.py is already present..."
+    else
+        printf "%s\n%s\n%s\n%s\n\t%s\n\t%s\n\t\t%s\n" "from flask import Flask" "app = Flask(__name__)" "@app.route('/')" "def index():" "return 'Welcome to Bizza Platform!'" "if __name__ == '__main__':" "app.run()">>app.py
 
     #Create .env file for flsk
-    printf "%s\n%s\n%s\n%s\n" "FLASK_APP=app.py" "FLASK_ENV=development" "FLASK_DEBUG=true">>.flaskenv
+    if [ -f .flaskenv ];then
+        printf "%s\n" ".flaskenv is already present..."
+    else
+        printf "%s\n%s\n%s\n%s\n" "FLASK_APP=app.py" "FLASK_ENV=development" "FLASK_DEBUG=true">>.flaskenv
+    fi
 
     #run flask
     flask run  
-    };
-    flask_install >> bin/log 2>>bin/errorFile
-    open_file bin/log
-    open_file bin/errorFile
+    }
+
+    flask_install >> ~/healthy150/bin/log 2>>~/healthy150/bin/errorFile
+    open_file ~/healthy150/bin/log
+    open_file ~/healthy150/bin/errorFile

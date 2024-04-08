@@ -27,4 +27,4 @@ log_seperator() {
     printf "%s\n";
 }
 
-log_seperator >> bin/log  2>>bin/errorFile
+log_seperator >> ~/healthy150/bin/log  2>>~/healthy150/bin/errorFile

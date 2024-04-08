@@ -1,0 +1,94 @@
+#!/bin/bash
+
+#: Title	: postgresql_download
+
+#: Date	: 2024-04-05
+
+#: Author	: Osama Ahmed
+
+#: Version	: 1.0
+
+#: Description	: downloading postgresql
+
+#: Options	: None
+postgresql_download(){
+
+	# sudo sh -c 'echo "deb https://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list';
+	# wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -;
+	# sudo apt-get update;
+	# sudo apt-get -y install postgresql;
+
+	#import repositoty key
+	sudo apt install curl ca-certificates
+	sudo install -d /usr/share/postgresql-common/pgdg
+	sudo curl -o /usr/share/postgresql-common/pgdg/apt.postgresql.org.asc --fail https://www.postgresql.org/media/keys/ACCC4CF8.asc
+
+	# Create /etc/apt/sources.list.d/pgdg.list
+	sudo sh -c 'echo "deb https://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list';
+
+	#update package and install postgresql
+	sudo apt update
+	sudo apt install postgresql-16
+
+
+
+	# add psql to the environment variable
+	#mnt\C:\Program Files\PostgreSQL\14\bin
+
+	#initiate connection with postgresql database
+	psql -d postgres -U postgres
+
+	# create new user
+	CREATE ROLE admin WITH LOGIN PASSWORD 'admin123';
+
+	#give the new user admin permission to create database
+	ALTER ROLE admin CREATEDB;
+
+	# log out of postgres user
+	\q
+
+	#log in as admin
+	psql -d postgres -U admin
+
+	#create new database biza
+	CREATE DATABASE bizza;
+
+	# connect to the new database
+	    \connect bizza
+
+	#instal sqlalchemy
+	pip install SQLAlchemy
+
+	#install flask sqlachemy extension
+	pip install flask-sqlalchemy
+}
+postgresql_download && $(date '+%Y-%m-%d') >> ~/healthy150/bin/log 2>>~/healthy150/bin/errorFile
+
+	
+
+	
+
+	 
+#!/bin/bash
+
+#: Title	: postgresql_download
+
+#: Date	: 2024-04-05
+
+#: Author	: Osama Ahmed
+
+#: Version	: 1.0
+
+#: Description	: downloading postgresql
+
+#: Options	: None
+postgresql_download(){
+	sudo sh -c 'echo deb
+}
+postgresql_download	>> ~/healthy150/bin/log 2>>~/healthy150/bin/errorFile
+
+	
+
+	
+
+	 

@@ -1,54 +1,37 @@
- * Tip: There are .env or .flaskenv files present. Do "pip install python-dotenv" to use them.
-Traceback (most recent call last):
-  File "/home/osama/healthy150/venv/bin/flask", line 8, in <module>
-    sys.exit(main())
-  File "/home/osama/healthy150/venv/lib/python3.10/site-packages/flask/cli.py", line 1107, in main
-    cli.main()
-  File "/home/osama/healthy150/venv/lib/python3.10/site-packages/click/core.py", line 1078, in main
-    rv = self.invoke(ctx)
-  File "/home/osama/healthy150/venv/lib/python3.10/site-packages/click/core.py", line 1688, in invoke
-    return _process_result(sub_ctx.command.invoke(sub_ctx))
-  File "/home/osama/healthy150/venv/lib/python3.10/site-packages/click/core.py", line 1434, in invoke
-    return ctx.invoke(self.callback, **ctx.params)
-  File "/home/osama/healthy150/venv/lib/python3.10/site-packages/click/core.py", line 783, in invoke
-    return __callback(*args, **kwargs)
-  File "/home/osama/healthy150/venv/lib/python3.10/site-packages/click/decorators.py", line 92, in new_func
-    return ctx.invoke(f, obj, *args, **kwargs)
-  File "/home/osama/healthy150/venv/lib/python3.10/site-packages/click/core.py", line 783, in invoke
-    return __callback(*args, **kwargs)
-  File "/home/osama/healthy150/venv/lib/python3.10/site-packages/flask/cli.py", line 955, in run_command
-    raise e from None
-  File "/home/osama/healthy150/venv/lib/python3.10/site-packages/flask/cli.py", line 939, in run_command
-    app: WSGIApplication = info.load_app()
-  File "/home/osama/healthy150/venv/lib/python3.10/site-packages/flask/cli.py", line 341, in load_app
-    app = locate_app(import_name, None, raise_if_not_found=False)
-  File "/home/osama/healthy150/venv/lib/python3.10/site-packages/flask/cli.py", line 247, in locate_app
-    __import__(module_name)
-  File "/home/osama/healthy150/app.py", line 2
-    app = Flask(__name__)
-IndentationError: unexpected indent
- * Tip: There are .env or .flaskenv files present. Do "pip install python-dotenv" to use them.
-[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on http://127.0.0.1:5000
-[33mPress CTRL+C to quit[0m
-127.0.0.1 - - [02/Apr/2024 06:24:03] "GET / HTTP/1.1" 200 -
-127.0.0.1 - - [02/Apr/2024 06:24:03] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
-hint: Using 'master' as the name for the initial branch. This default branch name
-hint: is subject to change. To configure the initial branch name to use in all
-hint: of your new repositories, which will suppress this warning, call:
-hint: 
-hint: 	git config --global init.defaultBranch <name>
-hint: 
-hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
-hint: 'development'. The just-created branch can be renamed via this command:
-hint: 
-hint: 	git branch -m <name>
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+W: GPG error: https://apt.postgresql.org/pub/repos/apt jammy-pgdg InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 7FCC7D46ACCC4CF8
+E: The repository 'https://apt.postgresql.org/pub/repos/apt jammy-pgdg InRelease' is not signed.
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Command 'python' not found, did you mean:
+  command 'python3' from deb python3
+  command 'python' from deb python-is-python3
+E: Unable to locate package flask
+/home/osama/healthy150/bin/flask_install: line 41: syntax error near unexpected token `}'
+/home/osama/healthy150/bin/flask_install: line 41: `    }'
+eb python-is-python3
+sudo: a terminal is required to read the password; either use the -S option to read from standard input or configure an askpass helper
+sudo: a password is required
+/home/osama/healthy150/bin/flask_install: line 41: syntax error near unexpected token `}'
+/home/osama/healthy150/bin/flask_install: line 41: `    }'
+sudo: a terminal is required to read the password; either use the -S option to read from standard input or configure an askpass helper
+sudo: a password is required
 Nothing specified, nothing added.
 hint: Maybe you wanted to say 'git add .'?
 hint: Turn this message off by running
 hint: "git config advice.addEmptyPathspec false"
 error: switch `m' requires a value
-git: 'push-u' is not a git command. See 'git --help'.
-error: pathspec 'commit' did not match any file(s) known to git
 error: remote origin already exists.
-git: 'push-u' is not a git command. See 'git --help'.
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/OsamaSokrab/healthy150.git'
+Nothing specified, nothing added.
+hint: Maybe you wanted to say 'git add .'?
+hint: Turn this message off by running
+hint: "git config advice.addEmptyPathspec false"
+error: switch `m' requires a value
+error: remote origin already exists.
+error: src refspec main does not match any
+error: failed to push some refs to 'https://github.com/OsamaSokrab/healthy150.git'

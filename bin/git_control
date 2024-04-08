@@ -30,29 +30,22 @@ git_control(){
     date '+%Y-%m-%d %H:%M:%S'
     printf "%s\n" "============================";
     printf "%s\n"
-    printf "%s\n" "============================";
-    printf "%s\n" "start of git update...";
-    printf "%s\n" "============================";
-    printf "%s\n";
+    log_seperator "start of git update...";
+    
     # update git to latest version
     sudo apt-get install git
-    printf "%s\n"
-    printf "%s\n" "============================";
-    printf "%s\n" "end of git update & start of setting username and email...";
-    printf "%s\n" "============================";
-    printf "%s\n";
+    log_seperator "end of git update & start of setting global credentials...";
 
     # set global credentials
     git config --global user.name $user_name    
     git config --global user.email $user_email
+    git config --global core.editor code
+    git config --global init.defaultBranch main
 
     #initiate the git
-    printf "%s\n"
-    printf "%s\n" "============================";
-    printf "%s\n" "end of setting username and email & checking git status...";
-    printf "%s\n" "============================";
-    printf "%s\n";
-    git init
+    log_seperator "end of setting global credentials & checking git status...";
+    
+    cd ~/healthy150 && git init
 
     #check the status of the git
     git status

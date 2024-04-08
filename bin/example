@@ -1,7 +1,0 @@
-echo "alice: $@"
-echo "$0: $1 $2 $3"
-echo "$# arguments"
-
-# for TOKEN in $*; 
-# do echo $TOKEN;
-# done

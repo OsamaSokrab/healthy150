@@ -1,0 +1,38 @@
+#!/bin/bash
+
+              
+#: Title       : create_script
+
+              
+#: Date        : 2023-04-02
+
+              
+#: Author      : Osama Ahmed
+
+              
+#: Version     : 1.0
+
+              
+#: Description : script for creating new script 
+
+              
+#: Options     : None
+
+title=$1
+script_date=$(date '+%Y-%m-%d')
+description=$2
+command=$3
+
+create_script(){
+   print_script_comments(){
+        printf "%s\n\n%s\t%s\n\n%s\t%s\n\n%s\t%s\n\n%s\t%s\n\n%s\t%s\n\n%s\t%s\n" "#!/bin/bash" "#: Title" ": $title" "#: Date" ": $script_date" "#: Author" ": Osama Ahmed" "#: Version" ": 1.0" "#: Description" ": $description" "#: Options" ": None"
+    }
+
+    print_script_function(){
+        printf "%s%s%s\n\t%s\n%s\n%s\t%s\n\n%s\t%s\n\n%s\t%s\n\n%s\t%s %s\n" "$title" "()" "{" "$command" "}" "$title" ">> ~/healthy150/bin/log 2>>~/healthy150/bin/errorFile"
+    }
+    print_script_comments >> ~/healthy150/bin/$title && sudo chmod 777 ~/healthy150/bin/$title
+    print_script_function >> ~/healthy150/bin/$title && sudo chmod 777 ~/healthy150/bin/$title
+
+}
+create_script >> ~/healthy150/bin/log 2>>~/healthy150/bin/errorFile
